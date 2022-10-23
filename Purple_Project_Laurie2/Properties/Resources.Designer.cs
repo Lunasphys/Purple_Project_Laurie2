@@ -62,6 +62,16 @@ namespace Purple_Project_Laurie2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _5794245 {
+            get {
+                object obj = ResourceManager.GetObject("_5794245", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap background {
             get {
                 object obj = ResourceManager.GetObject("background", resourceCulture);
@@ -125,6 +135,16 @@ namespace Purple_Project_Laurie2.Properties {
         internal static System.Drawing.Bitmap p1 {
             get {
                 object obj = ResourceManager.GetObject("p1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap paws {
+            get {
+                object obj = ResourceManager.GetObject("paws", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

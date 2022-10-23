@@ -52,10 +52,19 @@
         <Compile Include="Form1.Designer.cs">
             <DependentUpon>Form1.cs</DependentUpon>
         </Compile>
+        <Compile Include="Menu.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="Menu.Designer.cs">
+          <DependentUpon>Menu.cs</DependentUpon>
+        </Compile>
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <EmbeddedResource Include="Form1.resx">
           <DependentUpon>Form1.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Menu.resx">
+          <DependentUpon>Menu.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="Properties\Resources.resx">
             <Generator>ResXFileCodeGenerator</Generator>
@@ -87,6 +96,7 @@
       <Content Include="Resources\ghibli.jpg" />
       <Content Include="Resources\nami.png" />
       <Content Include="Resources\p1.png" />
+      <Content Include="Resources\paws.gif" />
       <Content Include="Resources\plat2.png" />
       <Content Include="Resources\plat3.png" />
       <Content Include="Resources\player1.png" />
@@ -98,6 +108,7 @@
       <Content Include="Resources\test3.png" />
       <Content Include="Resources\treats.png" />
       <Content Include="Resources\treatsgood.png" />
+      <Content Include="Resources\_5794245.jpg" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

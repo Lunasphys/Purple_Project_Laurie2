@@ -9,3 +9,4 @@ C:\Users\Admin\RiderProjects\Purple_Project_Laurie2\Purple_Project_Laurie2\obj\D
 C:\Users\Admin\RiderProjects\Purple_Project_Laurie2\Purple_Project_Laurie2\obj\Debug\Purple_Project_Laurie2.exe
 C:\Users\Admin\RiderProjects\Purple_Project_Laurie2\Purple_Project_Laurie2\obj\Debug\Purple_Project_Laurie2.pdb
 C:\Users\Admin\RiderProjects\Purple_Project_Laurie2\Purple_Project_Laurie2\obj\Debug\Purple_Project_Laurie2.Form1.resources
+C:\Users\Admin\RiderProjects\Purple_Project_Laurie2\Purple_Project_Laurie2\obj\Debug\Purple_Project_Laurie2.Menu.resources
