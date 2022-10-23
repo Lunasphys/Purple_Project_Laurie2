@@ -21,8 +21,10 @@ namespace Purple_Project_Laurie2
 
     int horizontalForce = 3;
     int verticalForce = 5;
+    int verticalForce2 = 5;
 
-    int enemySpeed = 5;
+    int enemySpeed1 = 5;
+    int enemySpeed2 = 5;
 
     public Form1()
     {
@@ -32,6 +34,8 @@ namespace Purple_Project_Laurie2
     private void MainGameTimerEvent(object sender, ElapsedEventArgs e)
     {
         txtCroquettes.Text = "Croquettes: " + croquettes;
+        enemyBox.SendToBack();
+        enemyBox2.SendToBack();
 
         nami.Top += jumpSpeed;
         if (goLeft == true)
@@ -129,12 +133,24 @@ namespace Purple_Project_Laurie2
         elevator1.Top += verticalForce;
         if (elevator1.Top < 120 || elevator1.Top > 500)
         {
-            verticalForce =-verticalForce;
+            verticalForce = -verticalForce;
         }
-        elevator2.Top += verticalForce;
+        elevator2.Top += verticalForce2;
         if (elevator2.Top < 120 || elevator2.Top > 500)
         {
-            verticalForce =-verticalForce;
+            verticalForce2 = -verticalForce2;
+        }
+        
+        enemyBox.Left -= enemySpeed1;
+        if (enemyBox.Left < pictureBox8.Left || enemyBox.Left + enemyBox.Width > pictureBox8.Left + pictureBox8.Width)
+        {
+            enemySpeed1 = -enemySpeed1;
+        }
+        
+        enemyBox2.Left -= enemySpeed2;
+        if (enemyBox2.Left < pictureBox6.Left || enemyBox2.Left + enemyBox2.Width > pictureBox6.Left + pictureBox6.Width)
+        {
+            enemySpeed2 = -enemySpeed2;
         }
     }
 
@@ -217,7 +233,7 @@ namespace Purple_Project_Laurie2
     }
 
 
-   
+    
 }
     
 }
