@@ -105,6 +105,7 @@
     <None Include="Resources\background3.png" />
     <Content Include="Resources\ennemy.png" />
     <Content Include="Resources\ennemyCat.png" />
+    <None Include="Resources\faa4e8247875afd1.png" />
     <Content Include="Resources\gameover.gif" />
     <Content Include="Resources\ghibli.jpg" />
     <Content Include="Resources\nami.png" />

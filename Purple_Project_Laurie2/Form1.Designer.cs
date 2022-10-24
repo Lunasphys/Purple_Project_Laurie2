@@ -81,7 +81,7 @@ namespace Purple_Project_Laurie2
             this.pictureBox55 = new System.Windows.Forms.PictureBox();
             this.pictureBox45 = new System.Windows.Forms.PictureBox();
             this.pictureBox56 = new System.Windows.Forms.PictureBox();
-            this.nami = new Purple_Project_Laurie2.OvalPictureBox();
+            this.nami = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.gameTimer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemyBox)).BeginInit();
@@ -138,7 +138,7 @@ namespace Purple_Project_Laurie2
             // gameTimer
             // 
             this.gameTimer.Enabled = true;
-            this.gameTimer.Interval = 30D;
+            this.gameTimer.Interval = 20D;
             this.gameTimer.SynchronizingObject = this;
             this.gameTimer.Elapsed += new System.Timers.ElapsedEventHandler(this.MainGameTimerEvent);
             // 
@@ -772,14 +772,20 @@ namespace Purple_Project_Laurie2
             // 
             // nami
             // 
+            this.nami.AccessibleDescription = "P1";
+            this.nami.AccessibleName = "enemyBox2";
+            this.nami.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
             this.nami.BackColor = System.Drawing.Color.Transparent;
-            this.nami.Image = global::Purple_Project_Laurie2.Properties.Resources.nami;
-            this.nami.Location = new System.Drawing.Point(125, 518);
+            this.nami.Cursor = System.Windows.Forms.Cursors.Default;
+            this.nami.Image = global::Purple_Project_Laurie2.Properties.Resources.faa4e8247875afd;
+            this.nami.Location = new System.Drawing.Point(128, 518);
+            this.nami.Margin = new System.Windows.Forms.Padding(4);
             this.nami.Name = "nami";
-            this.nami.Size = new System.Drawing.Size(50, 46);
+            this.nami.Size = new System.Drawing.Size(60, 52);
             this.nami.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.nami.TabIndex = 65;
+            this.nami.TabIndex = 66;
             this.nami.TabStop = false;
+            this.nami.Tag = "";
             // 
             // Form1
             // 
@@ -790,7 +796,6 @@ namespace Purple_Project_Laurie2
             this.BackgroundImage = global::Purple_Project_Laurie2.Properties.Resources.background2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1347, 648);
-            this.Controls.Add(this.nami);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.txtCroquettes);
             this.Controls.Add(this.enemyBox2);
@@ -841,6 +846,7 @@ namespace Purple_Project_Laurie2
             this.Controls.Add(this.elevator2);
             this.Controls.Add(this.elevator1);
             this.Controls.Add(this.enemyBox);
+            this.Controls.Add(this.nami);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -969,7 +975,7 @@ namespace Purple_Project_Laurie2
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox56;
         private System.Windows.Forms.PictureBox pictureBox45;
-        private OvalPictureBox nami;
+        private System.Windows.Forms.PictureBox nami;
     }
 }
 

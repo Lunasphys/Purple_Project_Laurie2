@@ -11,7 +11,7 @@ using System.Timers;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Windows.Forms;
+
 
 
 
@@ -19,13 +19,13 @@ namespace Purple_Project_Laurie2
 {
     public partial class Form1 : Form
     {
-        private bool isGameOver, goLeft, goRight, jumpin;
+        private bool isGameOver, goLeft, goRight, jumpin, namiPosition;
     int jumpSpeed;
     int force;
     int croquettes = 0;
     int namiSpeed = 8;
 
-    int horizontalForce = 3;
+    
     int verticalForce = 5;
     int verticalForce2 = 5;
 
@@ -40,11 +40,6 @@ namespace Purple_Project_Laurie2
         private void MainGameTimerEvent(object sender, ElapsedEventArgs e)
         {
 
-
-            GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
-            gp.AddEllipse(0, 0, nami.Width - 3, nami.Height - 3);
-            Region rg = new Region(gp);
-            nami.Region = rg;
             
             txtCroquettes.Text = "Croquettes: " + croquettes;
             enemyBox.SendToBack();
@@ -76,6 +71,11 @@ namespace Purple_Project_Laurie2
                 jumpSpeed = 9;
             }
 
+            if (namiPosition == true)
+            {
+                nami.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
+            } 
+
             // if nami touch the border of the screen, he can't go further (left and right) and die if he touch the bottom
 
             if (nami.Left < 0)
@@ -96,6 +96,7 @@ namespace Purple_Project_Laurie2
                 txtCroquettes.Text = "Perdu ! Tu as collecté " + croquettes + " croquettes!";
             }
 
+            
 
 
             foreach (Control x in this.Controls)
@@ -113,7 +114,7 @@ namespace Purple_Project_Laurie2
                             if (nami.Bounds.IntersectsWith(x.Bounds) && !jumpin)
                             {
                                 force = 8;
-                                nami.Top = x.Top + 1- nami.Height;
+                                nami.Top = x.Top + 2- nami.Height;
                                 jumpin = false;
 
                             }
@@ -242,12 +243,14 @@ namespace Purple_Project_Laurie2
         if (e.KeyCode == Keys.Left)
         {
             goLeft = true;
+                goRight = false;
             
         }
         if (e.KeyCode == Keys.Right)
         {
             goRight = true;
-        }
+            goLeft = false;
+            }
         if (e.KeyCode == Keys.Space && jumpin == false)
         {
             jumpin = true;
@@ -262,10 +265,12 @@ namespace Purple_Project_Laurie2
         
         if (e.KeyCode == Keys.Left)
         {
-            goLeft = false;
+               
+                goLeft = false;
         }
         if (e.KeyCode == Keys.Right)
         {
+                namiPosition = false;
             goRight = false;
         }
         if (jumpin == true)
