@@ -4,12 +4,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Windows.Forms;
+
+
 
 namespace Purple_Project_Laurie2
 {
@@ -35,6 +39,13 @@ namespace Purple_Project_Laurie2
 
         private void MainGameTimerEvent(object sender, ElapsedEventArgs e)
         {
+
+
+            GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
+            gp.AddEllipse(0, 0, nami.Width - 3, nami.Height - 3);
+            Region rg = new Region(gp);
+            nami.Region = rg;
+            
             txtCroquettes.Text = "Croquettes: " + croquettes;
             enemyBox.SendToBack();
             enemyBox2.SendToBack();
@@ -102,13 +113,14 @@ namespace Purple_Project_Laurie2
                             if (nami.Bounds.IntersectsWith(x.Bounds) && !jumpin)
                             {
                                 force = 8;
-                                nami.Top = x.Top - nami.Height;
+                                nami.Top = x.Top + 1- nami.Height;
+                                jumpin = false;
 
                             }
 
-
-
                             x.BringToFront();
+
+
                         }
 
                     }
@@ -181,47 +193,47 @@ namespace Purple_Project_Laurie2
             // Pathing of the enemies
 
             enemyBox.Left -= enemySpeed1;
-            if (enemyBox.Left < pictureBox8.Left || enemyBox.Left + enemyBox.Width > pictureBox8.Left + pictureBox8.Width)
+            if (enemyBox.Left < pictureBox11.Left || enemyBox.Left + enemyBox.Width > pictureBox11.Left + pictureBox11.Width)
             {
                 enemySpeed1 = -enemySpeed1;
             }
 
             enemyBox2.Left -= enemySpeed2;
-            if (enemyBox2.Left < pictureBox6.Left || enemyBox2.Left + enemyBox2.Width > pictureBox6.Left + pictureBox6.Width)
+            if (enemyBox2.Left < pictureBox2.Left || enemyBox2.Left + enemyBox2.Width > pictureBox2.Left + pictureBox2.Width)
             {
                 enemySpeed2 = -enemySpeed2;
             }
 
             // Enemies image go on other direction when hit the border of the platform
             
-            if (enemyBox.Left >= 502)
+            if (enemyBox.Left >= pictureBox11.Left + pictureBox11.Width - 60)
             {
                 
                 enemyBox.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
                 
             }
-            else if (enemyBox.Left <= 358 )
+            else if (enemyBox.Left <= pictureBox11.Left )
             {
                 
                 enemyBox.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
             }
 
-            if (enemyBox2.Left >= pictureBox6.Left + pictureBox6.Width - 60)
+            if (enemyBox2.Left >= pictureBox2.Left + pictureBox2.Width - 60)
             {
                 enemyBox2.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
             }
-            else if (enemyBox2.Left <= pictureBox6.Left)
+            else if (enemyBox2.Left <= pictureBox2.Left)
             {
                 enemyBox2.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
             }
-            
             
 
 
         }
-            
 
-        
+
+       
+
 
         private void KeyIsDown(object sender, KeyEventArgs e)
     {
@@ -304,7 +316,24 @@ namespace Purple_Project_Laurie2
 
     
     }
-    
+    class OvalPictureBox : PictureBox
+    {
+        public OvalPictureBox()
+        {
+            this.BackColor = Color.DarkGray;
+        }
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+            using (var gp = new GraphicsPath())
+            {
+                gp.AddEllipse(new Rectangle(0, 0, this.Width - 1, this.Height - 1));
+                this.Region = new Region(gp);
+            }
+        }
+    }
+
+
 }
 
 
