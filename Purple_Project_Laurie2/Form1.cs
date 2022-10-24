@@ -3,6 +3,7 @@ using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace Purple_Project_Laurie2
 {
     public partial class Form1 : Form
     {
-        private bool isGameOver, goLeft, goRight, jumpin, goDown;
+        private bool isGameOver, goLeft, goRight, jumpin;
     int jumpSpeed;
     int force;
     int croquettes = 0;
@@ -32,151 +33,197 @@ namespace Purple_Project_Laurie2
         InitializeComponent();
     }
 
-    private void MainGameTimerEvent(object sender, ElapsedEventArgs e)
-    {
-        txtCroquettes.Text = "Croquettes: " + croquettes;
-        enemyBox.SendToBack();
-        enemyBox2.SendToBack();
+        private void MainGameTimerEvent(object sender, ElapsedEventArgs e)
+        {
+            txtCroquettes.Text = "Croquettes: " + croquettes;
+            enemyBox.SendToBack();
+            enemyBox2.SendToBack();
 
-        nami.Top += jumpSpeed;
-        if (goLeft == true)
-        {
-            nami.Left -= namiSpeed;
-        }
-
-        if (goRight == true)
-        {
-            nami.Left += namiSpeed;
-        }
-
-        if (jumpin == true && force < 0)
-        {
-            jumpin = false;
-        }
-
-        if (jumpin == true)
-        {
-            jumpSpeed = -12;
-            force -= 1;
-        }
-        else
-        {
-            jumpSpeed = 9;
-        }
-        
-        // if nami touch the border of the screen, he can't go further (left and right) and die if he touch the bottom
-        
-        if (nami.Left < 0)
-        {
-            nami.Left = 0;
-        } else if (nami.Right > ClientSize.Width)
-        {
-            nami.Left = ClientSize.Width - nami.Width;
-        } else if (nami.Bottom > ClientSize.Height + 100)
-        {
-            gameTimer.Stop();
-            isGameOver = true;
-            //gameOver.BringToFront();
-            //gameOver.Visible = true;
-
-            txtCroquettes.Text = "Perdu ! Tu as collecté " + croquettes + " croquettes!";
-        } 
-        
-        
-        
-        foreach (Control x in this.Controls)
-        {
-
-            
-            
-            if (x is PictureBox && (string)x.Tag == "platform")
+            nami.Top += jumpSpeed;
+            if (goLeft == true)
             {
-                if (x is PictureBox)
+                nami.Left -= namiSpeed;
+            }
+
+            if (goRight == true)
+            {
+                nami.Left += namiSpeed;
+            }
+
+            if (jumpin == true && force < 0)
+            {
+                jumpin = false;
+            }
+
+            if (jumpin == true)
+            {
+                jumpSpeed = -12;
+                force -= 1;
+            }
+            else
+            {
+                jumpSpeed = 9;
+            }
+
+            // if nami touch the border of the screen, he can't go further (left and right) and die if he touch the bottom
+
+            if (nami.Left < 0)
+            {
+                nami.Left = 0;
+            }
+            else if (nami.Right > ClientSize.Width)
+            {
+                nami.Left = ClientSize.Width - nami.Width;
+            }
+            else if (nami.Bottom > ClientSize.Height + 100)
+            {
+                gameTimer.Stop();
+                isGameOver = true;
+                //gameOver.BringToFront();
+                //gameOver.Visible = true;
+
+                txtCroquettes.Text = "Perdu ! Tu as collecté " + croquettes + " croquettes!";
+            }
+
+
+
+            foreach (Control x in this.Controls)
+            {
+
+
+
+                if (x is PictureBox && (string)x.Tag == "platform")
                 {
-   
-                    if ((string)x.Tag == "platform")
+                    if (x is PictureBox)
                     {
-                        if (nami.Bounds.IntersectsWith(x.Bounds) && !jumpin)
-                        {
-                            force = 8;
-                            nami.Top = x.Top - nami.Height;
-                            
-                        }  
-                        // if nami touch the bottom of the platform, he can't go further (down)
-                        if (nami.Top == x.Bottom && jumpin)
-                        {
-                            nami.Top = x.Bottom + 50;
-                            force = 0;
-                            jumpSpeed = -12;
 
+                        if ((string)x.Tag == "platform")
+                        {
+                            if (nami.Bounds.IntersectsWith(x.Bounds) && !jumpin)
+                            {
+                                force = 8;
+                                nami.Top = x.Top - nami.Height;
+
+                            }
+
+
+
+                            x.BringToFront();
                         }
- 
 
-                        x.BringToFront();
                     }
                 }
-            }
-            if ((string)x.Tag == "croc")
-            {
-                if (nami.Bounds.IntersectsWith(x.Bounds) && x.Visible == true)
-                {
-                    croquettes += 1;
-                    x.Visible = false;
-                }
-            }
-            if ((string)x.Tag == "superCrocs")
-            {
-                if (nami.Bounds.IntersectsWith(x.Bounds) && x.Visible == true)
-                {
-                    croquettes += 10;
-                    x.Visible = false;
-                }
-            }
+                // if nami is on the elevator and jump, the jump had to take in count the elevator's speed
 
-            
-            /*if ((string)x.Tag == "enemy")
-            {
-                if (nami.Bounds.IntersectsWith(x.Bounds))
+
+                if ((string)x.Tag == "Vplatform")
                 {
-                    gameTimer.Stop();
-                    isGameOver = true;
-                    //gameOver.BringToFront();
-                    //gameOver.Visible = true;
-                    
-                    txtCroquettes.Text = "Perdu ! Tu as collecté " + croquettes + " croquettes!";
+                    if (nami.Bounds.IntersectsWith(x.Bounds) && !jumpin)
+                    {
+                        force = 8;
+                        nami.Top = x.Top - nami.Height;
+
+                    }
+
+
                 }
 
-            } */
+                if ((string)x.Tag == "croc")
+                {
+                    if (nami.Bounds.IntersectsWith(x.Bounds) && x.Visible == true)
+                    {
+                        croquettes += 1;
+                        x.Visible = false;
+                    }
+                }
+                if ((string)x.Tag == "superCrocs")
+                {
+                    if (nami.Bounds.IntersectsWith(x.Bounds) && x.Visible == true)
+                    {
+                        croquettes += 10;
+                        x.Visible = false;
+                    }
+                }
+
+
+                /*if ((string)x.Tag == "enemy")
+                {
+                    if (nami.Bounds.IntersectsWith(x.Bounds))
+                    {
+                        gameTimer.Stop();
+                        isGameOver = true;
+                        //gameOver.BringToFront();
+                        //gameOver.Visible = true;
+
+                        txtCroquettes.Text = "Perdu ! Tu as collecté " + croquettes + " croquettes!";
+                    }
+
+                } */
+
+
+            }
+
+            // Pathing of the elevators
+            
+            elevator1.Top += verticalForce;
+            if (elevator1.Top < 120 || elevator1.Top > 500)
+            {
+                verticalForce = -verticalForce;
+
+            }
+
+            elevator2.Top += verticalForce2;
+            if (elevator2.Top < 120 || elevator2.Top > 500)
+            {
+                verticalForce2 = -verticalForce2;
+            }
+
+            // Pathing of the enemies
+
+            enemyBox.Left -= enemySpeed1;
+            if (enemyBox.Left < pictureBox8.Left || enemyBox.Left + enemyBox.Width > pictureBox8.Left + pictureBox8.Width)
+            {
+                enemySpeed1 = -enemySpeed1;
+            }
+
+            enemyBox2.Left -= enemySpeed2;
+            if (enemyBox2.Left < pictureBox6.Left || enemyBox2.Left + enemyBox2.Width > pictureBox6.Left + pictureBox6.Width)
+            {
+                enemySpeed2 = -enemySpeed2;
+            }
+
+            // Enemies image go on other direction when hit the border of the platform
+            
+            if (enemyBox.Left >= 502)
+            {
+                
+                enemyBox.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                
+            }
+            else if (enemyBox.Left <= 358 )
+            {
+                
+                enemyBox.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
+            }
+
+            if (enemyBox2.Left >= pictureBox6.Left + pictureBox6.Width - 60)
+            {
+                enemyBox2.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
+            }
+            else if (enemyBox2.Left <= pictureBox6.Left)
+            {
+                enemyBox2.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
+            }
             
             
+
+
         }
-        elevator1.Top += verticalForce;
-        if (elevator1.Top < 120 || elevator1.Top > 500)
-        {
-            verticalForce = -verticalForce;
-        }
-        elevator2.Top += verticalForce2;
-        if (elevator2.Top < 120 || elevator2.Top > 500)
-        {
-            verticalForce2 = -verticalForce2;
-        }
+            
+
         
-        enemyBox.Left -= enemySpeed1;
-        if (enemyBox.Left < pictureBox8.Left || enemyBox.Left + enemyBox.Width > pictureBox8.Left + pictureBox8.Width)
-        {
-            enemySpeed1 = -enemySpeed1;
-        }
-        
-        enemyBox2.Left -= enemySpeed2;
-        if (enemyBox2.Left < pictureBox6.Left || enemyBox2.Left + enemyBox2.Width > pictureBox6.Left + pictureBox6.Width)
-        {
-            enemySpeed2 = -enemySpeed2;
-        }
-    }
 
-
-
-    private void KeyIsDown(object sender, KeyEventArgs e)
+        private void KeyIsDown(object sender, KeyEventArgs e)
     {
         
 
@@ -194,10 +241,7 @@ namespace Purple_Project_Laurie2
             jumpin = true;
             
         }
-        if (e.KeyCode == Keys.Down)
-        {
-            goDown = true;
-        }
+        
     }
 
     private void KeyIsUp(object sender, KeyEventArgs e)
@@ -217,10 +261,7 @@ namespace Purple_Project_Laurie2
             jumpin = false;
         }
         
-        if (e.KeyCode == Keys.Down)
-        {
-            goDown = false;
-        }
+        
         
         
         
@@ -231,13 +272,14 @@ namespace Purple_Project_Laurie2
         
     }
 
-    private void RestartGame()
+    private void RestartGame() // Restart the game when nami's die
     {
-        jumpin = false;
-        goLeft = false;
-        goRight = false;
-        goDown = false;
-        isGameOver = false;
+       isGameOver = false;
+       //gameOver.Visible = false;
+       nami.Top = 500;
+       nami.Left = 50;
+            
+
         croquettes = 0;
         txtCroquettes.Text = "Croquettes" + croquettes;
 
@@ -248,8 +290,6 @@ namespace Purple_Project_Laurie2
                 x.Visible = true;
             }
         }
-        nami.Left = 80;
-        nami.Top = 776;
 
         enemyBox.Left = 456;
         enemyBox2.Left = 1051;
