@@ -337,10 +337,10 @@ namespace Purple_Project_Laurie2
             // 
             this.pictureBox41.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox41.Image = global::Purple_Project_Laurie2.Properties.Resources.Pierrebon;
-            this.pictureBox41.Location = new System.Drawing.Point(641, 468);
+            this.pictureBox41.Location = new System.Drawing.Point(641, 483);
             this.pictureBox41.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureBox41.Name = "pictureBox41";
-            this.pictureBox41.Size = new System.Drawing.Size(121, 182);
+            this.pictureBox41.Size = new System.Drawing.Size(121, 167);
             this.pictureBox41.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox41.TabIndex = 56;
             this.pictureBox41.TabStop = false;
@@ -350,7 +350,7 @@ namespace Purple_Project_Laurie2
             // 
             this.pictureBox40.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox40.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox40.Image")));
-            this.pictureBox40.Location = new System.Drawing.Point(657, 438);
+            this.pictureBox40.Location = new System.Drawing.Point(659, 455);
             this.pictureBox40.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureBox40.Name = "pictureBox40";
             this.pictureBox40.Size = new System.Drawing.Size(19, 22);
@@ -803,7 +803,7 @@ namespace Purple_Project_Laurie2
             // 
             this.pictureBox27.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox27.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox27.Image")));
-            this.pictureBox27.Location = new System.Drawing.Point(713, 438);
+            this.pictureBox27.Location = new System.Drawing.Point(715, 455);
             this.pictureBox27.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureBox27.Name = "pictureBox27";
             this.pictureBox27.Size = new System.Drawing.Size(19, 22);
@@ -859,10 +859,6 @@ namespace Purple_Project_Laurie2
             this.pictureBox8.TabIndex = 44;
             this.pictureBox8.TabStop = false;
             this.pictureBox8.Tag = "niche";
-            // 
-            // GravityTick
-            // 
-            this.GravityTick.Tick += new System.EventHandler(this.Timer1);
             // 
             // Form1
             // 

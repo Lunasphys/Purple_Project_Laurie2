@@ -19,12 +19,12 @@ namespace Purple_Project_Laurie2
 {
     public partial class Form1 : Form
     {
-        private bool isGameOver, goLeft, goRight, jumpin, namiPosition;
-    int jumpSpeed;
+    private bool isGameOver, goLeft, goRight, jumpin, namiPosition;
+    int gravity;
     int force;
     int croquettes = 0;
-    int namiSpeed = 8;
-        int gravity = 5;
+    
+   
 
     
     int verticalForce = 5;
@@ -32,30 +32,48 @@ namespace Purple_Project_Laurie2
 
     int enemySpeed1 = 5;
     int enemySpeed2 = 5;
-
+        
+    
     public Form1()
     {
         InitializeComponent();
     }
 
-        private async void MainGameTimerEvent(object sender, ElapsedEventArgs e)
+        
+
+        private async void
+            
+            MainGameTimerEvent(object sender, ElapsedEventArgs e)
         {
 
+            PictureBox loose = new PictureBox();
+            loose.Image = Properties.Resources.gameover;
+            loose.Location = new Point(500, 200);
+            loose.Visible = true;
+            loose.Height = 240;
+            loose.Width = 600;
+            loose.Tag = "looser";
             
-            txtCroquettes.Text = "Croquettes: " + croquettes;
-            enemyBox.BringToFront();
-            enemyBox2.BringToFront();
+            Controls.Add(loose);
+            loose.Visible = false;
+            loose.BringToFront();
 
-            nami.Top += jumpSpeed;
+
+
+            txtCroquettes.Text = "Croquettes: " + croquettes;
+            
+
+            nami.Top += gravity;
             if (goLeft == true)
             {
-                nami.Left -= namiSpeed;
+                nami.Left -= 8;
             }
 
             if (goRight == true)
             {
-                nami.Left += namiSpeed;
+                nami.Left += 8;
             }
+            
 
             if (jumpin == true && force < 0)
             {
@@ -64,13 +82,24 @@ namespace Purple_Project_Laurie2
 
             if (jumpin == true)
             {
-                jumpSpeed = -12;
+
+                gravity = -12;
                 force -= 1;
+                
             }
             else
             {
-                jumpSpeed = 9;
+                gravity = 8;
             }
+
+            if (nami.Right >= pictureBox41.Left && nami.Bottom > pictureBox41.Top && nami.Left < pictureBox41.Left && nami.Top > 480 && !jumpin )
+            {
+                force = 8;
+                nami.Left = pictureBox41.Left - nami.Width;
+                jumpin = false;
+
+            } 
+                
 
             if (namiPosition == true)
             {
@@ -91,13 +120,10 @@ namespace Purple_Project_Laurie2
             {
                 gameTimer.Stop();
                 isGameOver = true;
-                //gameOver.BringToFront();
-                //gameOver.Visible = true;
-
+                loose.Visible = true;
                 txtCroquettes.Text = "Perdu ! Tu as collecté " + croquettes + " croquettes!";
             }
 
-            
 
 
             foreach (Control x in this.Controls)
@@ -120,8 +146,8 @@ namespace Purple_Project_Laurie2
                                 
 
                             }
+                            
 
-                            x.BringToFront();
 
 
                         }
@@ -137,6 +163,7 @@ namespace Purple_Project_Laurie2
                     {
                         force = 8;
                         nami.Top = x.Top - nami.Height;
+                        
 
                     }
 
@@ -149,11 +176,13 @@ namespace Purple_Project_Laurie2
                     {
 
                         txtCroquettes.Text = "Bravo ! Tu as collecté " + croquettes + " croquettes!";
-                       
+                        loose.Visible = false;
+
                     }
                     else if (nami.Bounds.IntersectsWith(x.Bounds) && croquettes < 31)
                     {
                         txtCroquettes.Text = "Perdu ! Tu n'as collecté " + croquettes + " croquettes, réessaye !";
+                        loose.Visible = true;
                     }
 
 
@@ -165,6 +194,7 @@ namespace Purple_Project_Laurie2
                     {
                         croquettes += 1;
                         x.Visible = false;
+                        x.SendToBack();
                     }
                 }
                 if ((string)x.Tag == "superCrocs")
@@ -173,6 +203,7 @@ namespace Purple_Project_Laurie2
                     {
                         croquettes += 10;
                         x.Visible = false;
+                        x.SendToBack();
                     }
                 }
 
@@ -182,9 +213,10 @@ namespace Purple_Project_Laurie2
                     if (nami.Bounds.IntersectsWith(x.Bounds))
                     {
                         gameTimer.Stop();
+
+                        loose.Visible = true;
                         isGameOver = true;
-                        //gameOver.BringToFront();
-                        //gameOver.Visible = true;
+                        
 
                         txtCroquettes.Text = "Perdu ! Tu as collecté " + croquettes + " croquettes!";
                      
@@ -254,36 +286,11 @@ namespace Purple_Project_Laurie2
 
         
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
+       
 
-        }
+       
 
-        private void Timer1(object sender, EventArgs e)
-        {
-            if (!jumpin && pb_Player.Location.Y +
-        pb_Player.Height < WorldFrame.Height - 2 && !Collision_Top(pb_Player))
-            {
-                pb_Player.Top += Speed_Fall;
-            }
-
-            if (!Player_Jump && pb_Player.Location.Y + pb_Player.Height > WorldFrame.Height - 1)
-            {
-                pb_Player.Top--;
-            }
-        }
-
-        private void imgGameOver()
-        {
-            // Create a picture box called "gameover" and add it to the form on front 
-            PictureBox gameOver = new PictureBox();
-            gameOver.Image = Properties.Resources.gameover;
-            gameOver.Location = new Point(500, 200);
-            gameOver.Height = 240;
-            gameOver.Width = 600;
-            this.Controls.Add(gameOver);
-            gameOver.BringToFront();
-        }
+        
 
         private void KeyIsDown(object sender, KeyEventArgs e)
     {
@@ -293,12 +300,13 @@ namespace Purple_Project_Laurie2
         {
             goLeft = true;
                 goRight = false;
-            
+
         }
         if (e.KeyCode == Keys.Right)
         {
             goRight = true;
-            goLeft = false;
+                goLeft = false;
+           
             }
         if (e.KeyCode == Keys.Space && jumpin == false)
         {
@@ -319,13 +327,18 @@ namespace Purple_Project_Laurie2
         }
         if (e.KeyCode == Keys.Right)
         {
-                namiPosition = false;
+            
             goRight = false;
         }
         if (jumpin == true)
         {
             jumpin = false;
-        }
+            
+        } else if (!jumpin)
+            {
+                force = gravity;
+                
+            }
         
         
         
@@ -339,10 +352,12 @@ namespace Purple_Project_Laurie2
         
     }
 
+
+    
     private void RestartGame() // Restart the game when nami's die
     {
        isGameOver = false;
-       //gameOver.Visible = false;
+       
        nami.Top = 500;
        nami.Left = 50;
             
@@ -352,18 +367,22 @@ namespace Purple_Project_Laurie2
 
         foreach (Control x in this.Controls)
         {
-            if (x is PictureBox && x.Visible == false)
+            if ((string)x.Tag == "croc" || (string)x.Tag == "superCrocs")
             {
                 x.Visible = true;
             }
-        }
+                if ((string)x.Tag == "looser")
+                {
+                    x.Visible = false;
+                }
+            }
         
         enemyBox.Left = 456;
         enemyBox2.Left = 1051;
 
         elevator1.Top = 361;
         elevator2.Top = 361;
-        
+
         
         gameTimer.Start();
 

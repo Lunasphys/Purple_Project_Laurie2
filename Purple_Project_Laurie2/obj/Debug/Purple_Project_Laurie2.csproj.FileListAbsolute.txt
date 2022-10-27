@@ -22,3 +22,15 @@ C:\Users\Laurie\source\repos\Purple_Project_Laurie2\Purple_Project_Laurie2\obj\D
 C:\Users\Laurie\source\repos\Purple_Project_Laurie2\Purple_Project_Laurie2\obj\Debug\Purple_Project_Laurie2.csproj.CoreCompileInputs.cache
 C:\Users\Laurie\source\repos\Purple_Project_Laurie2\Purple_Project_Laurie2\obj\Debug\Purple_Project_Laurie2.exe
 C:\Users\Laurie\source\repos\Purple_Project_Laurie2\Purple_Project_Laurie2\obj\Debug\Purple_Project_Laurie2.pdb
+C:\Users\Admin\Source\Repos\Purple_Project_Laurie2\Purple_Project_Laurie2\bin\Debug\Purple_Project_Laurie2.exe.config
+C:\Users\Admin\Source\Repos\Purple_Project_Laurie2\Purple_Project_Laurie2\bin\Debug\Purple_Project_Laurie2.exe
+C:\Users\Admin\Source\Repos\Purple_Project_Laurie2\Purple_Project_Laurie2\bin\Debug\Purple_Project_Laurie2.pdb
+C:\Users\Admin\Source\Repos\Purple_Project_Laurie2\Purple_Project_Laurie2\obj\Debug\Purple_Project_Laurie2.csproj.AssemblyReference.cache
+C:\Users\Admin\Source\Repos\Purple_Project_Laurie2\Purple_Project_Laurie2\obj\Debug\Purple_Project_Laurie2.csproj.SuggestedBindingRedirects.cache
+C:\Users\Admin\Source\Repos\Purple_Project_Laurie2\Purple_Project_Laurie2\obj\Debug\Purple_Project_Laurie2.Form1.resources
+C:\Users\Admin\Source\Repos\Purple_Project_Laurie2\Purple_Project_Laurie2\obj\Debug\Purple_Project_Laurie2.Menu.resources
+C:\Users\Admin\Source\Repos\Purple_Project_Laurie2\Purple_Project_Laurie2\obj\Debug\Purple_Project_Laurie2.Properties.Resources.resources
+C:\Users\Admin\Source\Repos\Purple_Project_Laurie2\Purple_Project_Laurie2\obj\Debug\Purple_Project_Laurie2.csproj.GenerateResource.cache
+C:\Users\Admin\Source\Repos\Purple_Project_Laurie2\Purple_Project_Laurie2\obj\Debug\Purple_Project_Laurie2.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Source\Repos\Purple_Project_Laurie2\Purple_Project_Laurie2\obj\Debug\Purple_Project_Laurie2.exe
+C:\Users\Admin\Source\Repos\Purple_Project_Laurie2\Purple_Project_Laurie2\obj\Debug\Purple_Project_Laurie2.pdb
