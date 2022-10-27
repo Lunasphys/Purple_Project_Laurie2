@@ -223,6 +223,16 @@ namespace Purple_Project_Laurie2.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _7238884 {
+            get {
+                object obj = ResourceManager.GetObject("7238884", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _8 {
             get {
                 object obj = ResourceManager.GetObject("8", resourceCulture);
@@ -266,6 +276,46 @@ namespace Purple_Project_Laurie2.Properties {
         internal static System.Drawing.Bitmap background3 {
             get {
                 object obj = ResourceManager.GetObject("background3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap clipart1333834 {
+            get {
+                object obj = ResourceManager.GetObject("clipart1333834", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap clipart13338341 {
+            get {
+                object obj = ResourceManager.GetObject("clipart13338341", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dog_house_g55251988b_640 {
+            get {
+                object obj = ResourceManager.GetObject("dog-house-g55251988b_640", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dog_house_g55251988b_6401 {
+            get {
+                object obj = ResourceManager.GetObject("dog-house-g55251988b_6401", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -326,6 +376,36 @@ namespace Purple_Project_Laurie2.Properties {
         internal static System.Drawing.Bitmap nami {
             get {
                 object obj = ResourceManager.GetObject("nami", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nami1 {
+            get {
+                object obj = ResourceManager.GetObject("nami1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap niche_a_chien {
+            get {
+                object obj = ResourceManager.GetObject("niche-a-chien", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap niche_a_chien1 {
+            get {
+                object obj = ResourceManager.GetObject("niche-a-chien1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -436,6 +516,16 @@ namespace Purple_Project_Laurie2.Properties {
         internal static System.Drawing.Bitmap player111 {
             get {
                 object obj = ResourceManager.GetObject("player111", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap player12 {
+            get {
+                object obj = ResourceManager.GetObject("player12", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

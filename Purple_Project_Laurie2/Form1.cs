@@ -24,6 +24,7 @@ namespace Purple_Project_Laurie2
     int force;
     int croquettes = 0;
     int namiSpeed = 8;
+        int gravity = 5;
 
     
     int verticalForce = 5;
@@ -37,13 +38,13 @@ namespace Purple_Project_Laurie2
         InitializeComponent();
     }
 
-        private void MainGameTimerEvent(object sender, ElapsedEventArgs e)
+        private async void MainGameTimerEvent(object sender, ElapsedEventArgs e)
         {
 
             
             txtCroquettes.Text = "Croquettes: " + croquettes;
-            enemyBox.SendToBack();
-            enemyBox2.SendToBack();
+            enemyBox.BringToFront();
+            enemyBox2.BringToFront();
 
             nami.Top += jumpSpeed;
             if (goLeft == true)
@@ -114,8 +115,9 @@ namespace Purple_Project_Laurie2
                             if (nami.Bounds.IntersectsWith(x.Bounds) && !jumpin)
                             {
                                 force = 8;
-                                nami.Top = x.Top + 2- nami.Height;
+                                nami.Top = x.Top +2- nami.Height;
                                 jumpin = false;
+                                
 
                             }
 
@@ -141,6 +143,22 @@ namespace Purple_Project_Laurie2
 
                 }
 
+                if ((string)x.Tag == "niche")
+                {
+                    if (nami.Bounds.IntersectsWith(x.Bounds) && croquettes >= 31)
+                    {
+
+                        txtCroquettes.Text = "Bravo ! Tu as collecté " + croquettes + " croquettes!";
+                       
+                    }
+                    else if (nami.Bounds.IntersectsWith(x.Bounds) && croquettes < 31)
+                    {
+                        txtCroquettes.Text = "Perdu ! Tu n'as collecté " + croquettes + " croquettes, réessaye !";
+                    }
+
+
+                }
+
                 if ((string)x.Tag == "croc")
                 {
                     if (nami.Bounds.IntersectsWith(x.Bounds) && x.Visible == true)
@@ -159,7 +177,7 @@ namespace Purple_Project_Laurie2
                 }
 
 
-                /*if ((string)x.Tag == "enemy")
+                if ((string)x.Tag == "enemy")
                 {
                     if (nami.Bounds.IntersectsWith(x.Bounds))
                     {
@@ -169,9 +187,11 @@ namespace Purple_Project_Laurie2
                         //gameOver.Visible = true;
 
                         txtCroquettes.Text = "Perdu ! Tu as collecté " + croquettes + " croquettes!";
+                     
+
                     }
 
-                } */
+                } 
 
 
             }
@@ -232,9 +252,38 @@ namespace Purple_Project_Laurie2
 
         }
 
+        
 
-       
+        private void timer1_Tick(object sender, EventArgs e)
+        {
 
+        }
+
+        private void Timer1(object sender, EventArgs e)
+        {
+            if (!jumpin && pb_Player.Location.Y +
+        pb_Player.Height < WorldFrame.Height - 2 && !Collision_Top(pb_Player))
+            {
+                pb_Player.Top += Speed_Fall;
+            }
+
+            if (!Player_Jump && pb_Player.Location.Y + pb_Player.Height > WorldFrame.Height - 1)
+            {
+                pb_Player.Top--;
+            }
+        }
+
+        private void imgGameOver()
+        {
+            // Create a picture box called "gameover" and add it to the form on front 
+            PictureBox gameOver = new PictureBox();
+            gameOver.Image = Properties.Resources.gameover;
+            gameOver.Location = new Point(500, 200);
+            gameOver.Height = 240;
+            gameOver.Width = 600;
+            this.Controls.Add(gameOver);
+            gameOver.BringToFront();
+        }
 
         private void KeyIsDown(object sender, KeyEventArgs e)
     {
@@ -285,6 +334,7 @@ namespace Purple_Project_Laurie2
         if (e.KeyCode == Keys.Enter && isGameOver == true)
         {
             RestartGame();
+            
         }
         
     }
@@ -307,12 +357,13 @@ namespace Purple_Project_Laurie2
                 x.Visible = true;
             }
         }
-
+        
         enemyBox.Left = 456;
         enemyBox2.Left = 1051;
 
         elevator1.Top = 361;
         elevator2.Top = 361;
+        
         
         gameTimer.Start();
 
