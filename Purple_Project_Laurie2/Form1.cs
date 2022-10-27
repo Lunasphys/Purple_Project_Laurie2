@@ -133,11 +133,7 @@ namespace Purple_Project_Laurie2
 
                 if (x is PictureBox && (string)x.Tag == "platform")
                 {
-                    if (x is PictureBox)
-                    {
-
-                        if ((string)x.Tag == "platform")
-                        {
+                   
                             if (nami.Bounds.IntersectsWith(x.Bounds) && !jumpin)
                             {
                                 force = 8;
@@ -146,13 +142,8 @@ namespace Purple_Project_Laurie2
                                 
 
                             }
-                            
-
-
-
-                        }
-
-                    }
+                    
+                  
                 }
                 // if nami is on the elevator and jump, the jump had to take in count the elevator's speed
 
