@@ -112,6 +112,7 @@
     <Content Include="Resources\ennemyCat.png" />
     <None Include="Resources\faa4e8247875afd1.png" />
     <Content Include="Resources\gameover.gif" />
+    <None Include="Resources\gameover1.png" />
     <Content Include="Resources\ghibli.jpg" />
     <Content Include="Resources\nami.png" />
     <None Include="Resources\nami1.png" />
