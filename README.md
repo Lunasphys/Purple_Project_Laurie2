@@ -15,7 +15,7 @@ personnalisation beaucoup plus poussée. Après le choix du style, j'avais déj�
 
 OBJECTIFS
 
-Tout d'abord, cela a été un très bon entrainement pour se familiariser avec le C# d'une manière fun, amusante mais l'investissement dedans.
+Tout d'abord, cela a été un très bon entrainement pour se familiariser avec le C# d'une manière fun et amusante. J'ai été très investie.
 Mes objectifs de bases étaient tout sauf prétencieux. Je souhaitais simplement avoir un gameplay assez smooth et développer un jeu qui me plaisait. 
 Les règles établies étaient les suivantes : déplacement, score, collision, condition de WIN/LOSE
 Se dire que j'ai réussi à faire ça est en soit un achievement en lui-même. (une petite fierté si je puis dire aussi) 
@@ -58,6 +58,7 @@ Score
 Ennemis
 Mort si le personnage tombe dans le vide
 Plateforme mouvante
+Ennemis mobile
 Game Over
 Restart
 Limite de mouvement au screen gauche et droite (haut non limité)
