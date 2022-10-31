@@ -24,7 +24,7 @@ Se dire que j'ai réussi à faire ça est en soit un achèvement en lui-même (U
 C'est enfin un projet que je peux partager avec mes amis, ma famille sans qu'ils soient rebutés par des lignes de codes (enfin !). C'est un projet qui se partage et dont il est plus facile de discuter dans mon cercle. 
 Objectif du jeu : Récupérer toutes les croquettes avant de rentrer à la niche sans mourir. 
 
-Expliquer les difficultés rencontrées / comment on les a réglées
+DIFFICULTÉS/RÉSOLUTION
 
 Avant de commencer son développement, j'étais loin de m'imaginer TOUS les problèmes que j'allais rencontrer... Dans un premier temps l'IDE Visual Studio. 
 Il me semble avoir avorté de 2 projets parce que j'avais des erreurs incompréhensibles. La navigation était très différente de ce que j'avais pu rencontrer précédemment. Après réfléxion, il s'avère qu'après plusieurs heures dessus, c'était juste une mauvaise compréhension
