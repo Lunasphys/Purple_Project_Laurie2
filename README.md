@@ -26,22 +26,25 @@ Objectif du jeu : Récupérer toutes les croquettes avant de rentrer à la niche
 
 DIFFICULTÉS/RÉSOLUTION
 
-Avant de commencer son développement, j'étais loin de m'imaginer TOUS les problèmes que j'allais rencontrer... Dans un premier temps l'IDE Visual Studio. 
-Il me semble avoir avorté de 2 projets parce que j'avais des erreurs incompréhensibles. La navigation était très différente de ce que j'avais pu rencontrer précédemment. Après réfléxion, il s'avère qu'après plusieurs heures dessus, c'était juste une mauvaise compréhension
-des fonctionnalités de Windows Form. Comment ouvrir la fenêtre designer, comment ouvrir celle contenant le code, retrouver la toolbox. En soit des choses qui me 
-semblent enfantines maintenant mais qui m'ont fait perdre pas mal de temps. J'ai aussi voulu switcher sur Rider, perte encore CONSIDERABLE de temps (nouvelles erreurs, 
-suppressions de toutes les images de mes pictureBox, bug de l'IDE en lui-même et j'en passe...).
+Avant de commencer son développement, j'étais loin de m'imaginer TOUS les problèmes que j'allais rencontrer... 
+Dans un premier temps l'IDE Visual Studio.
+
+Il me semble avoir avorté de 2 projets parce que j'avais des erreurs incompréhensibles. La navigation était très différente de ce que j'avais pu rencontrer précédemment. Après réfléxion, il s'avère qu'après plusieurs heures dessus, c'était juste une mauvaise compréhension des fonctionnalités de Windows Form. Comment ouvrir la fenêtre designer, comment ouvrir celle contenant le code, retrouver la toolbox. En soit des choses qui me  semblent enfantines maintenant mais qui m'ont fait perdre pas mal de temps. J'ai aussi voulu switcher sur Rider, perte encore CONSIDERABLE de temps (nouvelles erreurs, suppressions de toutes les images de mes pictureBox, bug de l'IDE en lui-même et j'en passe...).
+
 Ensuite il y a eu les collisions, qui ont été un casse-tête pour pas mal de monde me semble t'il. Au début je me suis dis que c'était assez simple. Après avoir regardé 
 plusieurs tuto, il suffisait d'utiliser le intersectWith et le Bonds et le tour était joué. Que nenni ! Cette méthode est bonne si l'on souhaite seulement marcher
 sur la plateforme. Le problème était que si le joueur avait le malheur de toucher n'importe quel autre côté de cette plateforme, il se retrouvait forcément dessus 
 quoi qu'il arrive. Il a donc fallut supprimer cette facilité et tout faire côté par côté. Je vous avoue que cela a été plutôt pénible, avec BEAUCOUP d'heures de 
 recherche ainsi que de triturage de cerveau sur une feuille en papier. A force de persévérance on y arrive ! 
+
 Passé cet obstacle, le fait que mon personnage glitch sévérement me tracassait. Après un certain temps j'ai compris que cela venait de mes déplacements et de la
 gravité. J'ai donc essayé de les refaire sans succès. Pour réduire cet effet j'ai simplement réduit la gravité lors de la chute hors du saut. Ce qui donne 
 cet effet plus lent lors de la chute (chose qui n'arrive pas lors d'une chute après un saut). J'ai rajouté un +5 sur l'axe Y lorsque le jump est faux (à +10 plus de glitch, mais aussi pas de chute malheureusement).
+
 J'avais aussi un problème de plusieurs sauts possibles, mais après de nombreux essais, il s'agissait simplement de retirer l'effet lors du KeyIsUp. 
 Autre problème non réglé, donc modifié. Le fait que ma mémoire sature lorsque le jeu est en GameOver. J'ai voulu créer une pictureBox animée lors d'une mort ou du non accomplissement des objectifs, seulement vu qu'il était stocké en non visible, au bout d'un moment la mémoire sature et plante.
 Malhereusement je m'en suis rendu compte le 31/10/2022 donc... au dernier moment. Si j'avais eu plus de temps, je sais que j'aurais dû créer la pictureBox au moment de la mort puis la détruire lors du Restart. 
+
 Création des assets. Au début j'ai voulu créer mes assets moi-même... c'était pas mal, mais comparé à l'existant j'ai vite abandonné cette idée. Malgré que certaines créations soient présentes dans les ressources du jeu.
 
 
