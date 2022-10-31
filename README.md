@@ -21,6 +21,7 @@ Les règles établies étaient les suivantes : déplacement, score, collision, c
 Se dire que j'ai réussi à faire ça est en soit un achievement en lui-même. (une petite fierté si je puis dire aussi) 
 C'est enfin un projet que je peux partager à mes amis/famille sans qu'ils soient rebutés par des lignes de codes. (enfin !) C'est un projet qui se partage et dont 
 il est plus facile de discuter dans mon cercle social. 
+Objectif du jeu : Récupérer toutes les croquettes avant de rentrer à la niche sans mourir. 
 
 expliquer les difficultés rencontrées / comment on les a réglées
 
@@ -36,9 +37,28 @@ sur la plateforme. Le probleme était que si le jouer avait le malheur de touche
 quoi qu'il arrive. Il a donc fallut supprimer cette facilité et tout faire côté par côté. Je vous avoue que cela a été plutôt pénible, avec BEAUCOUP d'heure de 
 recherche ainsi que de triturage de cerveau sur une feuille en papier. A force de persévérance on y arrive ! 
 Passé cet obstacle, le fait que mon personnagle glitch sévérement me tracassait. Après un certain temps j'ai compris que cela venait de mes déplacements et de la
-gravité. J'ai donc essayé de les refaire sans succés. Pour réduire cet effet j'ai simplement réduit cet effet lors de la chute hors du saut. Ce qui donne 
-cet effet plus lent lors de la chute. (chose qui n'arrive pas lors d'une chute après un saut)
+gravité. J'ai donc essayé de les refaire sans succés. Pour réduire cet effet j'ai simplement réduit la gravité lors de la chute hors du saut. Ce qui donne 
+cet effet plus lent lors de la chute. (chose qui n'arrive pas lors d'une chute après un saut) J'ai rajouté un +5 sur l'axe Y lorsque le jump est faux. (à 10 plus de glitch, mais aussi plus de chute malheureusement) 
+J'avais aussi un probleme de pluseirus saut possible, mais après plusieurs essais, il s'agissait simplement de retirer l'effet lors du KeyIsUp. 
+Autre problème non réglé, donc modifié. Le fait que ma mémoire sature lorsque le jeu est en GameOver. J'ai voulu créer une pictureBox animée lors d'une mort ou du non accomplissement des objectifs, seulement vu qu'il était stocké en non visible, au bout d'un moment la mémoire sature et plante.
+Malhereusement je m'en suis rendu compte le 31/10/2022 donc... au dernier moment. Si j'avais eu plus de temps, je sais que j'aurais dû créer la pictureBox au moment de la mort puis la détruire lors du Restart. 
+Création des assets. Au début j'ai voulu créer mes assets moi-même... c'était pas mal, mais comparé à l'existant j'ai vite abandonné cette idée. Malgré que certaines créations soient présentes dans les ressources du jeu.
 
-d
-expliquer le thème du jeu
-expliquer les features
+
+THEME DU JEU
+
+Le thème abordé n'est pas si profond, c'est un jeu légé. 
+Pour faire simple, Nami est mon chien. C'est une femelle Shiba Inu de 4ans et demi. Elle adore les friandises (et particuliérement le poulet, d'où la super prime de +10 en croquette pour le poulet) et à une peur bleu des chats. Elle s'était faite attaqué par l'un deux lors d'une promenade en forêt avant sa première année, et depuis c'est sa phobie. 
+Pour rester dans cette légereté j'ai opté pour des couleurs vives, et un style un peu cartoon. 
+
+FEATURES
+
+Saut unique (de la plateforme ou dans le vide)
+Score
+Ennemis
+Mort si le personnage tombe dans le vide
+Plateforme mouvante
+Game Over
+Restart
+Limite de mouvement au screen gauche et droite (haut non limité)
+Collision de chaque côté des plateformes
