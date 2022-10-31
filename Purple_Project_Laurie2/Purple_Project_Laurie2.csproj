@@ -101,6 +101,7 @@
     <None Include="Resources\6.png" />
     <None Include="Resources\8.png" />
     <None Include="Resources\7238884.png" />
+    <None Include="Resources\AmtLPA.gif" />
     <Content Include="Resources\background.jpg" />
     <None Include="Resources\background2.jpg" />
     <None Include="Resources\background3.png" />
@@ -111,6 +112,8 @@
     <Content Include="Resources\ennemy.png" />
     <Content Include="Resources\ennemyCat.png" />
     <None Include="Resources\faa4e8247875afd1.png" />
+    <None Include="Resources\ennemyCat2.png" />
+    <None Include="Resources\ennemyCat3.png" />
     <Content Include="Resources\gameover.gif" />
     <None Include="Resources\gameover1.png" />
     <Content Include="Resources\ghibli.jpg" />
@@ -135,6 +138,7 @@
     <Content Include="Resources\test3.png" />
     <Content Include="Resources\treats.png" />
     <Content Include="Resources\treatsgood.png" />
+    <None Include="Resources\wingame.png" />
     <Content Include="Resources\_5794245.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

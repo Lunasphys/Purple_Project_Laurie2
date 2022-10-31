@@ -115,7 +115,11 @@ namespace Purple_Project_Laurie2
             }
             if (nami.Left < niche.Right && nami.Right > niche.Left && nami.Bottom > niche.Top && nami.Top < niche.Bottom && croquettes < 30)
             {
-                looseG();
+                looseG(); 
+            }
+            if (nami.Left < niche.Right && nami.Right > niche.Left && nami.Bottom > niche.Top && nami.Top < niche.Bottom && croquettes >= 2)
+            {
+                winG();
             }
 
             // Collision with platform to jump on them
@@ -171,8 +175,8 @@ namespace Purple_Project_Laurie2
                     {
 
                         txtCroquettes.Text = "Bravo ! Tu as collecté " + croquettes + " croquettes!";
-                        
-                        
+                        isGameOver = true;
+                        gameTimer.Stop();
 
                     }
                     else if (nami.Bounds.IntersectsWith(x.Bounds) && croquettes < 30)
@@ -182,7 +186,6 @@ namespace Purple_Project_Laurie2
                         isGameOver = true;
                         gameTimer.Stop();
                     }
-                    
 
                 }
                 // Collision with croquettes, add 1 point if collectef, +10 if supercroc is collected
@@ -337,15 +340,20 @@ namespace Purple_Project_Laurie2
         {
             RestartGame();  
         }
-        
-    }
+            if (e.KeyCode == Keys.Escape && isGameOver == true)
+            {
+                Application.Exit();
+            }
 
 
-    private PictureBox looseG() // Return and s
+        }
+
+
+    private PictureBox looseG() // Show gameOver screen
         {
 
             PictureBox loose = new PictureBox();
-            loose.Location = new Point(500, 200);
+            loose.Location = new Point(381, 224);
             loose.BackColor = Color.Transparent;
             loose.Visible = true;
             loose.Height = 240;
@@ -356,7 +364,23 @@ namespace Purple_Project_Laurie2
             loose.BringToFront();
             return loose;
         }
-        
+
+        private PictureBox winG() // Show gameOver screen
+        {
+
+            PictureBox win = new PictureBox();
+            win.Location = new Point(381, 224);
+            win.BackColor = Color.Transparent;
+            win.Visible = true;
+            win.Height = 240;
+            win.Width = 600;
+            win.Tag = "winner";
+            win.Image = Properties.Resources.wingame;
+            Controls.Add(win);
+            win.BringToFront();
+            return win;
+        }
+
         private void RestartGame() // Restart the game when nami's die
     {
             // Delete memory cache
@@ -382,7 +406,7 @@ namespace Purple_Project_Laurie2
                 {
                     x.Dispose();
                 }
-                if ((string)x.Name == "looser2")
+                if ((string)x.Tag == "winner")
                 {
                     x.Dispose();
                 }

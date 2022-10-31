@@ -53,7 +53,7 @@ namespace Purple_Project_Laurie2
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(243, 239);
+            this.button1.Location = new System.Drawing.Point(231, 335);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(135, 37);
             this.button1.TabIndex = 1;
@@ -63,7 +63,7 @@ namespace Purple_Project_Laurie2
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(485, 239);
+            this.button2.Location = new System.Drawing.Point(473, 335);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(117, 37);
             this.button2.TabIndex = 2;

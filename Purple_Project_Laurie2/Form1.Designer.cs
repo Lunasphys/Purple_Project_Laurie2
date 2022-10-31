@@ -174,7 +174,7 @@ namespace Purple_Project_Laurie2
             this.enemyBox.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
             this.enemyBox.BackColor = System.Drawing.Color.Transparent;
             this.enemyBox.Cursor = System.Windows.Forms.Cursors.Default;
-            this.enemyBox.Image = global::Purple_Project_Laurie2.Properties.Resources.ennemyCat;
+            this.enemyBox.Image = global::Purple_Project_Laurie2.Properties.Resources.ennemyCat3;
             this.enemyBox.Location = new System.Drawing.Point(365, 310);
             this.enemyBox.Margin = new System.Windows.Forms.Padding(4);
             this.enemyBox.Name = "enemyBox";
